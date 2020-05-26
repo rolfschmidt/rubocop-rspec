@@ -104,7 +104,7 @@ module RuboCop
 
         def filename_ends_with?(glob)
           filename =
-            RuboCop::PathUtil.relative_path(processed_source.buffer.name)
+            RuboCop::PathUtil.relative_path(processed_source.buffer.name).gsub('../', '')
           File.fnmatch?("*#{glob}", filename)
         end
 
